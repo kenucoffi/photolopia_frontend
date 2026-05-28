@@ -25,7 +25,8 @@ export const getSearchData = async (search:String) =>{
       
       // const response  = await axios.get("http://localhost:8000/user/searchphotographer?search="+query)
       // return response.data.results
-      const response = await axios.post("http://localhost:8000/api/V1/search",{search},{headers:{"Accept":"application/json"},withCredentials:true})
+      const url = process.env.NEXT_PUBLIC_API_URL
+      const response = await axios.post(url+"/api/V1/search",{search},{headers:{"Accept":"application/json"},withCredentials:true})
       return response.data.data
     }
     catch(e:any){
@@ -38,7 +39,8 @@ export const getSearchData = async (search:String) =>{
 const getData = async () => {
   try{
     // const response = await axios.get("http://localhost:8000/user/listphotographer",{withCredentials : false})
-    const response = await axios.get("http://localhost:8000/api/V1/listofphotographers",{withCredentials:true}) 
+    const url = process.env.NEXT_PUBLIC_API_URL
+    const response = await axios.get(url+"/api/V1/listofphotographers",{withCredentials:true}) 
     console.log(response.data)
     return response.data.data
 

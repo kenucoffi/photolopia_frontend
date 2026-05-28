@@ -81,11 +81,11 @@ const ProfileNav = () => {
         <User size={30}/>
       </div>
       { open && (
-        <div className=' absolute  top-10 flex flex-col w-[250px] p-4 right-8 bg-white border rounded-xl space-y-3'>
-          <UserClick user="Log In" onClick={login.open}/>;
+        <div className=' absolute  top-10 flex flex-col w-[120px] p-4 right-8 bg-white border rounded-xl space-y-2'>
+          <UserClick user="Log In" onClick={login.open}/>
           <div className="px-4 py-1 hover:bg-white hover:text-blue-300">
             <Link href="/Signup">Signup</Link>
-          </div>;
+          </div>
         </div>
       ) }
       </div></>): (

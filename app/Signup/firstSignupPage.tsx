@@ -10,13 +10,16 @@ const FirstSignupPage = () => {
     const [username ,setUser_name] = useState("")
     const [password ,setPassword] = useState("")
     const [user_type,setUser_type] = useState("")
-    const [response,setResponse] = useState("")
+    const [response,setResponse] = useState<React.ReactElement | null>(null)
 
     async function hundleSubmit(e:any){
         e.preventDefault()
         try{
             const response =  await register({username,email,password,first_name,last_name,user_type})
-            setResponse("Register Successfuly")
+            if(response){
+                setResponse(response)
+            }
+            
         }
         catch(e:any){
             alert(e.message)
@@ -28,7 +31,7 @@ const FirstSignupPage = () => {
     <div className="flex sm:w-[600px] w-[500px] ml-5 sm:px-2 flex-col h-full justify-center items-center ">
       <h1 className="flex items-center  justify-center w-full text-blue-500 text-2xl font-bold my-5">Sign Up</h1>
       <hr className="w-[500px] font-bold my-5"/>
-        {response != null ? <div className="text-green-500">response</div>: null }
+        {response != null  ? <div className="text-green-500">{response}</div>: null }
         <form className="space-y-4" onSubmit={hundleSubmit} method="POST">
             <div className="flex flex-row space-x-4">
                 <div>

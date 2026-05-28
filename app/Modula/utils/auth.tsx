@@ -71,7 +71,7 @@ export const register = async({username,email,password,first_name,last_name,user
         await axios.get(url+"/sanctum/csrf-cookie", { withCredentials: true });
         const response = await axios.post(url+"/api/V1/register",{username,email,password,first_name,last_name,user_type},{headers: {'Content-Type': 'application/json','Accept': 'application/json' ,withCredentials: true}})
         if(response.status == 201){
-          return true
+          return <div className='text-green-500'>Register Successfuly</div>
         }
 
 

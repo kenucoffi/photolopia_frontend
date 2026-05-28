@@ -28,7 +28,7 @@ const FirstSignupPage = () => {
 
     return(
     <> 
-    <div className="flex sm:w-[600px] w-[500px] ml-5 sm:px-2 flex-col h-full justify-center items-center ">
+    <div className="flex sm:w-[600px] w-[350px] ml-18 md:ml-2 sm:px-2 flex-col h-full justify-center items-center ">
       <h1 className="flex items-center  justify-center w-full text-blue-500 text-2xl font-bold my-5">Sign Up</h1>
       <hr className="w-[500px] font-bold my-5"/>
         {response != null  ? <div className="text-green-500">{response}</div>: null }

@@ -144,8 +144,6 @@ export const getUserData = async() => {
         
         const url = process.env.NEXT_PUBLIC_API_URL
         const response = await axios.get(url+"/api/V1/userdata",{headers:{"Authorization":"Bearer "+token,"Accept":"application/json"}, withCredentials: true})
-        alert("successfuly fetch user data")
-        
         return response.data.data
 
     }

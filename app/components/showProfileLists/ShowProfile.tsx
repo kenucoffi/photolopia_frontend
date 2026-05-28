@@ -52,7 +52,7 @@ const ShowPost = ({id,user_id}:ShowpostInterface) => {
   }
   else{
     return <div className="grid grid-cols-2  sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post)&&post.map((index)=>{
-      if(index.post_type=="other"){
+      if(index.post_type=="others"){
         return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description}/>
       }
     })}</div>

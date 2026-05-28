@@ -8,7 +8,6 @@ import { postimage } from '@/app/imagepost'
 import Post from '@/app/components/showProfileLists/Post'
 import EventList from '@/app/components/showProfileLists/EventList'
 import ShowProfile from '@/app/components/showProfileLists/ShowProfile'
-import {useEffect,useState,use} from "react"
 import axios from "axios"
 import { getSingleData } from"@/app/Modula/utils/auth" 
 import Usercomponent from '../usercomponent'

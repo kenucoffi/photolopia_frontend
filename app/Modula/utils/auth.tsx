@@ -1,8 +1,4 @@
-import { useValidationError } from "../hooks/errror"
 import axios from "axios"
-import { headers } from "next/headers"
-const API = "http://localhost:8000/user/"
-import { useState } from "react"
 interface Register{
     
     email:String

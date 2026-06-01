@@ -39,7 +39,7 @@ const Modula:React.FC<Modulavariables>= ({label,content,close,isOpen}) => {
         <div className='translate duration-600 transition-y-0 opacity-100'>
             <div className='w-[95%] lg:w-[70%] md:w-[83%]  h-[400px] my-[-140px] absolute bg-white flex flex-col mx-10 md:mx-41 lg:mx-26 rounded-xl'>
                 <header className='relative flex  flex-col  px-3 py-3'>
-                    <div onClick={handleclick} className="absolute btn btn-circle p-1 hover:text-red-400 right-3 top-2"><X size={20}  className=' text-black '/></div>
+                    <div onClick={handleclick} className="absolute btn btn-circle bg-white p-1 hover:text-red-700 right-3 top-2"><X size={20}  className=' text-black '/></div>
                 </header>
                 <section className="overflow-y-auto p-6 ">
                   <div className=" flex justify-center  ">

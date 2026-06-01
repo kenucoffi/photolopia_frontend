@@ -7,9 +7,9 @@ interface PostProps{
   name:string
   porfolio:string
   description:string
-  profile?:string
-  image?:string
-  link?:string
+  profile:string
+  image:string
+  link:string
   id:string
 }
 const Posts:React.FC<PostProps> = ({id,name,porfolio,description,profile,image,link}) => {
@@ -32,7 +32,7 @@ const Posts:React.FC<PostProps> = ({id,name,porfolio,description,profile,image,l
         </div>
       </div>
         {more_less?<p className="font-medium text-[15px] text-justify"onClick={showMoreLess}  > {description}</p>:<p className="font-medium text-[15px] text-justify"onClick={showMoreLess}> {lessDescription}<br></br> <span>Show more...</span></p>}
-        <div className="relative overflow-hidden aspect-square h-[400px]"><img  src={url+'/'+ image} alt="post"  className="object-center transition h-full w-full "/></div>
+        <div className="relative overflow-hidden aspect-square h-[400px]"><img  src={''+ image} alt="post"  className="object-center transition h-full w-full "/></div>
     </div>
   )
 }

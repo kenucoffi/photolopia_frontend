@@ -27,10 +27,10 @@ const ProfileImg = () => {
     const url = process.env.NEXT_PUBLIC_API_URL
     const form = (
         <form className="space-y-3 mt-3 flex flex-col justify-center items-center" method='PATCH' onSubmit={handleSubmit} >
-            <div>click photo to upload new image</div>
+            <div className="text-blue-500">click circle to upload new image</div>
             <label >
               <div className="relative btn btn-circle p-18 overflow-auto border-green-500 border-4">
-                <img src={url+"/"+image.profile_image} className='absolute h-full w-full '/>
+                <img src={""+image.profile_image} className='absolute h-full w-full '/>
               </div>
               <input onChange={handleChange} type="file" style={{display:"none"}} name='profile_image' />
               

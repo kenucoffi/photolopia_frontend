@@ -20,9 +20,9 @@ const Photographer : React.FC<PhotographerInfo> = ({first_name,last_name,profile
             <div className='relative overflow-auto rounded-xl aspect-square object-center  transition bg-gray-300 hover:bg-gray-400  h-[34%] '>{big_profile_image?<img src={''+ big_profile_image} alt='profile pic' className="w-full h-full object-cover overflow-auto" />:null}</div>
             <div className='flex flex-col '>   
                 <div className='flex justify-center cursor-pointer'><div className='relative overflow-auto mt-[-40px] mb-2 btn btn-circle p-10  '>{profile_image?<img src={''+ profile_image} alt='profile pic' className="absolute w-full h-full object-cover overflow-auto" />:<User className="absolute w-full h-full object-cover overflow-auto"/>}</div></div>
-                <div className='flex justify-center cursor-pointer text-md font-bold'><Link href={'/useraccount/'+id} >{first_name} {last_name}</Link></div>
-                <div className='flex justify-center text-sm my-1 ml-2 mr-1 overflow-ellipsis font-light'>{speciality?speciality.slice(0,17)+"...":null}</div>
-                <div className='flex justify-center cursor-pointer text-md  text-blue-300 hover:text-blue-500'> Followe +</div>
+                <div className='flex justify-center cursor-pointer text-md font-bold text-black'><Link href={'/useraccount/'+id} >{first_name} {last_name}</Link></div>
+                <div className='flex justify-center text-sm my-1 ml-2 mr-1 overflow-ellipsis font-light text-black'>{speciality?speciality.slice(0,17)+"...":null}</div>
+                <div className='flex justify-center cursor-pointer text-md  text-blue-500 hover:text-blue-700'> Followe +</div>
             </div>
         </div>
 )

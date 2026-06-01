@@ -59,7 +59,7 @@ const UserInfo = () => {
     }
   const form =  (
         <form method='post' className='p-3 space-y-2' onSubmit={handleSubmit}>
-            <h2 className="text-lg font-bold ">Basic Info</h2>
+            <h2 className="text-lg font-bold text-black">Basic Info</h2>
             <div className="flex flex-col space-y-5">
                 <div className='flex flex-col space-y-2'>
                     <label className="text-gray-500">First Name</label>

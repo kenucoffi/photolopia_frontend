@@ -40,15 +40,15 @@ const Post_open = () => {
         <form method='POST' className='p-3 flex flex-col space-y-4' onSubmit={handleSubmit}>
             <div>{message!=null?message:null}</div>
             <div className="flex flex-col space-y-1">
-                <label className=''>title </label>
+                <label className='text-black'>title </label>
                 <input type='text' onChange={handleTitle} name="title" placeholder='your post title' className='text-sm text-black p-1 w-full border rounded-xl '/>
             </div>
             <div className="flex flex-col space-y-1">
-                <label className="">description</label>
+                <label className="text-black">description</label>
                 <textarea name='description' onChange={handleDesciption} className='w-full p-3 border text-black rounded-xl text-sm' placeholder='your post description'></textarea>
             </div>
             <div className='flex flex-col space-x-1'>
-                <label className=''>post Type</label>
+                <label className='text-black'>post Type</label>
                 <select name='post_type' className="w-full rounded-xl p-2 border cursor-pointer " onChange={handlePostType}>
                     <option value="" >Choose type</option>
                     <option value='birth_day' className="bg-blue-500 text-white hover:bg-green-300 p-2">birth day</option>
@@ -57,7 +57,7 @@ const Post_open = () => {
                 </select>
             </div>
             <label>
-                <div className='p-2 border text-center border-green-300 bg-gray-200 text-blue-500 rounded-xl hover:bg-gray-300 cursor-pointer'>click to upload </div>
+                <div className='p-2 border text-center border-green-900 bg-gray-200 text-blue-900 rounded-xl hover:bg-gray-300 cursor-pointer'>click to upload </div>
                 <input onChange={handleImage}  type='file' name='image' style={{display:"none"}}/>
                 <div className='text-center'>{image?image.name:null}</div>
             </label>

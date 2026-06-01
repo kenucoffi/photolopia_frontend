@@ -12,7 +12,7 @@ import axios from "axios"
 import { getSingleData } from"@/app/Modula/utils/auth" 
 import Usercomponent from '../usercomponent'
 interface Props{
-    params:Promise<{id:String}>
+    params:Promise<{id:string}>
 }
 
   const page = async({ params }: Props ) => {

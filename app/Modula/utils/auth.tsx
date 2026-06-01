@@ -379,13 +379,25 @@ export async function  create_post({title,description,post_type,image}:PostInter
   }
   try{
     const response = await fetch(url+"/api/V1/post",{method:"post",body:formData,headers:{"Authorization":"Bearer "+token,'Accept':"application/json"},credentials:"include"})
-    if (response){
-      console.log(response.json())
-      return true
+    if(response.ok){
+      alert("post successfuly ")
+      return <div>post successfuly</div>
+    }
+    else if(response.status == 422){
+      
+      const data = await response.json()
+      console.log(data.errors)
+      const errorMessage = Object.values(data.errors).flat()
+      return <div>{ errorMessage.map((error:any)=>{
+                 return typeof error === 'string' ?  <div className="text-red-500 p-2 ml-2 ">{error}</div>:null
+              })}</div>
     }
   }
-  catch(e:any){
-    alert(e.message)
+  catch(e:any){       
+    alert(errors.message)
+    const messages = <div className="text-red-500">the system have some issue try agen</div>
+    return messages
+            
   }
 
 }

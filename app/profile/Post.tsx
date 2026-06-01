@@ -12,6 +12,7 @@ const Post_open = () => {
     const [title,setTitle] = useState("")
     const [description,setDescription] = useState("")
     const [post_type,setPostType]=useState("")
+    const [message,setMessage]=useState<React.Element | null>(null)
     function handleTitle(e:any){
         setTitle(e.target.value)
     }
@@ -28,24 +29,26 @@ const Post_open = () => {
         e.preventDefault()
         const response = await create_post({title:title,description:description,post_type:post_type,image:image})
         if(response){
-            alert('post create successfuly')
-            change.Changed()
+            setMessage(response)
         }
+        
+        
 
     }
     const form=(
 
         <form method='POST' className='p-3 flex flex-col space-y-4' onSubmit={handleSubmit}>
+            <div>{message!=null?message:null}</div>
             <div className="flex flex-col space-y-1">
-                <label className='text-gray-400'>title </label>
-                <input type='text' onChange={handleTitle} name="title" placeholder='your post title' className='text-sm p-1 w-full border rounded-xl '/>
+                <label className=''>title </label>
+                <input type='text' onChange={handleTitle} name="title" placeholder='your post title' className='text-sm text-black p-1 w-full border rounded-xl '/>
             </div>
             <div className="flex flex-col space-y-1">
-                <label className="text-gray-400">description</label>
-                <textarea name='description' onChange={handleDesciption} className='w-full p-3 border rounded-xl text-sm' placeholder='your post description'></textarea>
+                <label className="">description</label>
+                <textarea name='description' onChange={handleDesciption} className='w-full p-3 border text-black rounded-xl text-sm' placeholder='your post description'></textarea>
             </div>
             <div className='flex flex-col space-x-1'>
-                <label className='text-gray-400'>post Type</label>
+                <label className=''>post Type</label>
                 <select name='post_type' className="w-full rounded-xl p-2 border cursor-pointer " onChange={handlePostType}>
                     <option value="" >Choose type</option>
                     <option value='birth_day' className="bg-blue-500 text-white hover:bg-green-300 p-2">birth day</option>
@@ -60,6 +63,7 @@ const Post_open = () => {
             </label>
             <div className="w-full flex justify-center"><button type="submit" className='w-[60%] cursor-pointer bg-blue-500 hover:bg-green-500 rounded-xl text-white text-center p-1'>Submit</button></div>
         </form>
+  
     )
     return (<Modula isOpen={openPost.isOpen} close={openPost.close} content={form} label="Create Post"/>)
 }

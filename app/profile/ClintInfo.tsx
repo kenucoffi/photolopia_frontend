@@ -58,28 +58,28 @@ const ClientInfo = () => {
             <h2 className="text-lg font-bold ">Basic Info</h2>
             <div className="flex flex-col space-y-5">
                 <div className='flex flex-col space-y-2'>
-                    <label className="text-gray-500">First Name</label>
-                    <input type="text" name="first_name" value={profile?profile.first_name : "" } placeholder="First Name" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border border-black  "/>
+                    <label className="">First Name</label>
+                    <input type="text" name="first_name" value={profile?profile.first_name : "" } placeholder="First Name" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border border-black text-black "/>
                 </div>
                 <div className='flex flex-col space-y-1'>
                     <label className="text-gray-500">Last Name</label>
-                    <input type="text" name="last_name" value={profile? profile.last_name:"" } placeholder="Last Name" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border border-black"/>
+                    <input type="text" name="last_name" value={profile? profile.last_name:"" } placeholder="Last Name" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border border-black text-black"/>
                 </div>
                 <div className='flex flex-col space-y-1'>
                     <label className="text-gray-500">UserName</label>
-                    <input type="text" name="username" value={profile?profile.username: ""} placeholder="username it should be unique" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border border-black"/>
+                    <input type="text" name="username" value={profile?profile.username: ""} placeholder="username it should be unique" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border text-black border-black"/>
                 </div>
                 <div className='flex flex-col space-y-1'>
                     <label className="text-gray-500">Email</label>
-                    <input type="text" name="email" value={profile?profile.email : ""} placeholder="Email" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border border-black"/>
+                    <input type="text" name="email" value={profile?profile.email : ""} placeholder="Email" onChange={handleInputChange} className="w-full py-1 px-2  flex justify-center text-black border border-black"/>
                 </div>
                 <div className='flex flex-col space-y-1'>
                     <label className="text-gray-500">Phone</label>
-                    <input type="text" name="phone" value={profile?profile.phone :""} placeholder="Phone" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border border-black"/>
+                    <input type="text" name="phone" value={profile?profile.phone :""} placeholder="Phone" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border text-black border-black"/>
                 </div>
                 <div className='flex flex-col space-y-1'>
                     <label className="text-gray-500">Location</label>
-                    <input type="text" name="location" value={profile?profile.location : ""} placeholder="location" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center border border-black"/>
+                    <input type="text" name="location" value={profile?profile.location : ""} placeholder="location" onChange={handleInputChange} className="w-full py-1 px-2 flex justify-center text-black border border-black"/>
                 </div>     
             </div>
             <div className="w-full flex justify-center  items-center mt-3"><button type="submit" className='bg-green-500 rounded-xl text-center text-white hover:bg-red-500 cursor-pointer w-[60%] py-1 px-3 '> Submit</button></div>

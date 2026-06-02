@@ -4,15 +4,15 @@ import Modula from '../Modula/Modula'
 import { Post } from '../Modula/hooks/post'
 import { create_post } from '../Modula/utils/auth'
 import { Change } from '../Modula/hooks/change'
-
+import { PostChange } from '../Modula/hooks/postchange'
 const Post_open = () => {
-    const change = Change()
+    const postchange = PostChange()
     const openPost = Post()
     const [image ,setImage] = useState<File | null>(null)
     const [title,setTitle] = useState("")
     const [description,setDescription] = useState("")
     const [post_type,setPostType]=useState("")
-    const [message,setMessage]=useState<React.Element | null>(null)
+    const [message,setMessage]=useState<React.ReactElement | null>(null)
     function handleTitle(e:any){
         setTitle(e.target.value)
     }
@@ -29,6 +29,7 @@ const Post_open = () => {
         e.preventDefault()
         const response = await create_post({title:title,description:description,post_type:post_type,image:image})
         if(response){
+            postchange.Changed()
             setMessage(response)
         }
         

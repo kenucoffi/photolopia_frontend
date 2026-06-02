@@ -35,7 +35,7 @@ const BigImage = ({}) => {
               <input onChange={handleChange} type="file" style={{display:"none"}} name='big_profile_image' />
               
             </label>
-            <div>{big_profile_image ? big_profile_image.name:null}</div>
+            <div className="text-black">{big_profile_image ? big_profile_image.name:null}</div>
               
             <button type='submit' className="px-3 py-2 text-center text-white rounded-xl bg-green-500 hover:bg-blue-500">Update</button>            
         </form>

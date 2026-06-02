@@ -53,7 +53,7 @@ interface Clientinfointerface{
     phone: string
 }
 interface UserId{
-  id:String
+  id:string
 }
 interface BioInterface{
    bio:string
@@ -463,5 +463,20 @@ export async function client_info_edit({first_name,last_name,username,email,loca
   }
   catch(e:any){
     console.log(e.message)
+  }
+}
+
+export async function delete_post({id}:UserId){
+  const token = localStorage.getItem("auth_token")
+  const url = process.env.NEXT_PUBLIC_API_URL
+  try{
+    const response = await axios.get(url+"/api/V1/delete_post/"+id,{headers:{"Accept":"application/json","Authorization":"Bearer "+token },withCredentials:true})
+    if(response){
+      return true
+    }
+  }
+  catch(e:any) {
+    alert(e.message)
+    return false
   }
 }

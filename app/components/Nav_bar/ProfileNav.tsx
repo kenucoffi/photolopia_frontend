@@ -95,19 +95,17 @@ const ProfileNav = () => {
           <div className="btn btn-circle p-2 flex justify-center w-[32px] h-[32px] items-center">{user.first_name[0]}{user.last_name[0]}</div>
         </div>
         { isprofile &&(
-        <div className="absolute  top-10 flex flex-col w-[250px] p-4 right-8 bg-white border rounded-xl space-y-3">
+        <div className="absolute  top-10 flex flex-col w-[170px] sm:w-[250px] p-4 right-6 sm:right-8 bg-white border rounded-xl space-y-3 ">
             <div className="flex justify-between ">
               <div className="flex flex-col space-y-1">
-                <div className='font-light text-[15px] text-gray-500 '>sign in as</div>
-                <div className="font-medium text-[15px]">{user.email}</div>
+                <div className='font-light text-[10px] sm:text-[15px] text-gray-500 '>sign in as</div>
+                <div className="font-medium text-[10px] sm:text-[15px]">{user.email}</div>
                  
               </div>
-              <div className="btn btn-circle p-2 flex justify-center w-[40px] h-[40px] items-center">{user.first_name[0]}{user.last_name[0]}</div>
+              <div className="btn btn-circle p-2 flex justify-center w-[25px] h-[25px]  sm:w-[40px] sm:h-[40px] items-center">{user.first_name[0]}{user.last_name[0]}</div>
               </div>
-              
-              
               <div className="flex w-full items-center  justify-center">
-              <hr className="w-[150px] font-bold "/>
+              <hr className="w-[70px] font-bold "/>
               </div>
               <div className='flex flex-row  items-center hover:text-blue-400'>
                   <User size={15}/>

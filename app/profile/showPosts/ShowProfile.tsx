@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { user_post } from '../../Modula/utils/auth'
 import Post_card from './post_card'
 import { Change } from '../../Modula/hooks/change'
-
+import { PostChange } from '@/app/Modula/hooks/postchange'
 interface ShowpostInterface{
   id:string
 }
@@ -19,7 +19,7 @@ interface PostInterface{
 }
 const ShowPost = ({id}:ShowpostInterface) => {
   const [post ,setPost] = useState<PostInterface | null>(null)
-  const change = Change()
+  const postchange = PostChange()
 
 
   useEffect(()=>{
@@ -31,42 +31,32 @@ const ShowPost = ({id}:ShowpostInterface) => {
        }
     }
     userpost()
-  },[change.ischange])
+  },[postchange.ischange])
   
   if(id=="1"){
-    
-    return <div className="grid grid-cols-2 sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post) && post.map((index)=>{
-        return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description}/>
-  
-      
+    return <div className="grid grid-cols-2 sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post) && post.map((index,key)=>{
+        return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description} id={index.id} key={key}/>
     })}</div>
   }
   else if(id=="2"){
-    return <div className="grid grid-cols-2 sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post) && post.map((index)=>{
-      
+    return <div className="grid grid-cols-2 sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post) && post.map((index,key)=>{
       if(index.post_type=="birth_day"){
-        return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description}/>
+        return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description} id={index.id} key={key}/>
       }
-      
     })}</div>
   }
   else if(id=="3"){
-    return <div className="grid grid-cols-2 sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post) &&post.map((index)=>{
-      if(index.post_type=="wedding"){
-        
-        return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description}/>
+    return <div className="grid grid-cols-2 sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post) &&post.map((index,key)=>{
+      if(index.post_type=="wedding"){ 
+        return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description} id={index.id} key={key}/>
       }
     })}</div>
   }
   else if(id=="4"){
-    return <div className="grid grid-cols-2  sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post)&&post.map((index)=>{
-      
-      
+    return <div className="grid grid-cols-2  sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post)&&post.map((index,key)=>{
       if(index.post_type=="others"){
-       
-        return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description}/>
+        return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description} id={index.id} key={key}/>
       }
-      
     })}</div>
   }
   

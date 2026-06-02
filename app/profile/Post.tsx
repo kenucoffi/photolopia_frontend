@@ -49,7 +49,7 @@ const Post_open = () => {
             </div>
             <div className='flex flex-col space-x-1'>
                 <label className='text-black'>post Type</label>
-                <select name='post_type' className="w-full rounded-xl p-2 border border-black cursor-pointer " onChange={handlePostType}>
+                <select name='post_type' className="w-full bg-white rounded-xl p-2 border border-black cursor-pointer " onChange={handlePostType}>
                     <option value="" className="text-black" >Choose type</option>
                     <option value='birth_day' className="bg-blue-500 text-white hover:bg-green-300 p-2">birth day</option>
                     <option value="wedding" className="bg-blue-500 text-white hover:bg-green-300 p-2">wedding</option>

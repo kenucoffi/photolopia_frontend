@@ -23,12 +23,17 @@ interface Props{
 const Usercomponent = () => {
   const userhook = UserDataStore()
   const change = Change()
+  const [Loading,setLoading]= useState(true)
   const [user,setUser] = useState<any>(null)
   useEffect(()=>{
     async function getUser(){
       try{
         const response= await getuserprofile()
-        setUser(response)
+        if(response){
+          setLoading(false)
+          setUser(response)
+        }
+        
       }
       catch(e:any){
         console.log("error"+e.message)
@@ -75,8 +80,20 @@ const Usercomponent = () => {
       }
      
 }
-else if (!user){
-    return (<div className="items-center flex justify-center">User not found</div>)
+if (Loading){
+    return (
+  <div className="grid grid-cols-1 h-[500px] col-span-2 ml-18 md:ml-2 border-gray-100 gap-4">
+  <div className="flex  flex-col space-y-4">
+    <div className="skeleton h-40 w-full"></div>
+    <div className="skeleton h-30 w-30 ml-10 rounded-full mt-[-60px]">
+    </div>
+    <div className="flex flex-row gap-4">
+      <div className="skeleton h-8 w-40"></div>
+      <div className="skeleton h-8 w-40"></div>
+    </div>
+    <div className="skeleton h-8 w-40"></div>
+  </div>
+</div>)
   }
 }
 export default Usercomponent

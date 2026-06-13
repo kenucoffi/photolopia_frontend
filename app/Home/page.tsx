@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import MainBar from '../components/MainBar/MainBar'
 
 const Home = () => {
   return (
-    <div>
       <MainBar/>
-    </div>
   )
 }
 

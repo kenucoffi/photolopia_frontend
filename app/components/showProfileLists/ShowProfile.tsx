@@ -19,17 +19,26 @@ interface PostInterface{
 }
 const ShowPost = ({id,user_id}:ShowpostInterface) => {
   const [post ,setPost] = useState<PostInterface | null>(null)
+  const [Loading,setLoading]=useState(true)
   useEffect(()=>{
     async function userpost(){
        const response = await public_user_post({id:user_id})
        if(response){
+        setLoading(false)
         console.log(response)
         setPost(response)
        }
     }
     userpost()
   },[user_id])
-  
+  if(Loading){
+    return(
+      <div className="w-full ml-18 md:ml-2 h-[70px] flex items-center justify-center">
+        <span className="loading loading-infinity loading-xl"></span>
+      </div>
+    )
+  }
+
   if(id=="1"){
     return <div className="grid grid-cols-2 sm:grid-cols-3 space-x-2 space-y-2">{Array.isArray(post) && post.map((index)=>{
         return <Post_card post_type={index.post_type} post_image={index.post_image} title={index.title} description={index.description}/>

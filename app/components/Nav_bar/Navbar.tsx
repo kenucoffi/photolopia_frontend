@@ -10,9 +10,9 @@ const Navbar = () => {
   return (
     <nav className="fixed px-2 sm:px-5 md:px-10 py-4  top-0 left-0 z-10 w-full h-auto mx-auto text-gray-500  bg-gray-100/80 backdrop-blue-md shadow-lg shadow-blue-300 ">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between">
-            <Link href="/"> 
-               <img src={url+"/uploads/logo.png"} alt="logo" width={100} height={100}/>
+        <div className="flex items-center justify-between ">
+            <Link href="/" className="relative w-[70px] h-[40px] overflow-auto object-cover"> 
+               <img src={url+"/uploads/logo.png"} alt="logo" className='absolute w-full h-full' />
              </Link>
              <div>
                 <Shortcuts/>

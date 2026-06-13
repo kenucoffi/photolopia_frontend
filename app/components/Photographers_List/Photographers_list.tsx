@@ -53,20 +53,23 @@ const getData = async () => {
 
 const Photographers_list =  () => {
   const [users,setUsers] = useState([])  
+  const [Loading,setLoading]=useState(true)
   const issearch = Searchuser()
   
  useEffect(() => {
     async function data(){
       const users = await getData()
           if (users){
+            setLoading(false)
             setUsers(users)
           }
          }
          
     async function searchNow() {
-
+      setLoading(true)
       const searchUser = await getSearchData(issearch.userenter)
       if(searchUser){
+        setLoading(false)
         setUsers(searchUser)
       }
     }
@@ -79,7 +82,53 @@ const Photographers_list =  () => {
     }
     
   }, [issearch.userenter ]);
+  if(Loading){
+    return(
+    <div className='ml-18 gap-4 md:ml-2 grid grid-cols-2 sm:grid-cols-3  '>
+      <div className="col-span-1 flex flex-col items-center justify-center gap-4">
+        <div className="skeleton w-full h-30"></div>
+        <div className="flex justify-center skeleton w-25 h-25 rounded-full mt-[-45px]"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        
+      </div>
+      <div className="col-span-1 flex flex-col items-center justify-center gap-4">
+        <div className="skeleton w-full h-30"></div>
+        <div className="flex justify-center skeleton w-25 h-25 rounded-full mt-[-45px]"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        
+      </div>
+      <div className="col-span-1 flex flex-col items-center justify-center gap-4">
+        <div className="skeleton w-full h-30"></div>
+        <div className="flex justify-center skeleton w-25 h-25 rounded-full mt-[-45px]"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        
+      </div>
+      <div className="col-span-1 flex flex-col items-center justify-center gap-4">
+        <div className="skeleton w-full h-30"></div>
+        <div className="flex justify-center skeleton w-25 h-25 rounded-full mt-[-45px]"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        
+      </div>
+      <div className="col-span-1 flex flex-col items-center justify-center gap-4">
+        <div className="skeleton w-full h-30"></div>
+        <div className="flex justify-center skeleton w-25 h-25 rounded-full mt-[-45px]"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        
+      </div>
+      <div className="col-span-1 flex flex-col items-center justify-center gap-4">
+        <div className="skeleton w-full h-30"></div>
+        <div className="flex justify-center skeleton w-25 h-25 rounded-full mt-[-45px]"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
+        <div className="flex justify-center skeleton w-30 h-6"></div>
   
+      </div>
+    </div>)
+  }
     
 
   return (

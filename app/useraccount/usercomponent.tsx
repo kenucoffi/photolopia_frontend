@@ -18,13 +18,17 @@ interface Props{
 }
 const Usercomponent = ({id}:Props) => {
   const detail = Detail()
-  
+  const [Loading,setLoading]=useState(true)
   const [user,setUser] = useState<any>(null)
   useEffect(()=>{
     async function getUser(){
       try{
         const response= await getSingleData({id})
-        setUser(response)
+        if(response){
+          setUser(response)
+          setLoading(false)
+        }
+        
         
       }
       catch(e:any){
@@ -35,11 +39,26 @@ const Usercomponent = ({id}:Props) => {
     detail.converId(id)
     console.log("i am "+detail.id)
   },[id])
-  
-  if (!user){
-    return (<div className="items-center flex justify-center">User not found</div>)
+if (Loading){
+    return (
+  <div className="flex flex-col gap-5">
+  <div className="grid grid-cols-1 h-[400px] col-span-2 ml-18 md:ml-2 border-gray-100 gap-4">
+  <div className="flex  flex-col space-y-4">
+    <div className="skeleton h-40 w-full"></div>
+    <div className="skeleton h-30 w-30 ml-10 rounded-full mt-[-60px]">
+    </div>
+    <div className="flex flex-row gap-4">
+      <div className="skeleton h-8 w-40"></div>
+      <div className="skeleton h-8 w-40"></div>
+    </div>
+    <div className="skeleton h-8 w-40"></div>
+  </div>
+</div>
+  <div className="ml-18 md:ml-2">
+    <div className="skeleton h-40 w-full"></div>
+  </div>
+ </div>)
   }
-  
   return (
     <>
        {user && (<div className="flex flex-col space-y-6">

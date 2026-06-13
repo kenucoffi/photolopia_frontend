@@ -12,7 +12,7 @@ interface PostProps{
   link:string
   id:string
 }
-const Posts:React.FC<PostProps> = ({id,name,porfolio,description,profile,image,link}) => {
+const Posts:React.FC<PostProps> = ({id,name,porfolio,description,profile,image}) => {
   const lessDescription = description.slice(0,50)
     const [more_less,setMoreLess] = useState(false)
     function showMoreLess(){

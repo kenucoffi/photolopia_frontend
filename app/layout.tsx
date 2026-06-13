@@ -13,6 +13,7 @@ import ClientInfo from "./profile/ClintInfo";
 import BioUpdate from "./profile/BioUpdate";
 import Post_open from "./profile/Post";
 import DetailPage from "./components/dynamic_page/detail";
+import { Suspense } from "react";
 
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function RootLayout({
           </div>
         
           <div className="col-span-2 top-20 mt-30">
-            {children}
+                {children} 
           </div>
           
         </div>

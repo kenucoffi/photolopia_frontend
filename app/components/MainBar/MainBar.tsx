@@ -1,8 +1,9 @@
 "use client"
 import React, { Suspense, useEffect, useState } from 'react'
 import Posts from './Posts'
+import { UserLogout } from '../../Modula/hooks/logout'
 import RightSidebar from '../Nav_bar/RightSidebar'
-import { getPosts } from '../../Modula/utils/auth'
+import { followerId, getPosts } from '../../Modula/utils/auth'
 interface PostsModule{
   post_image:string 
   title:string
@@ -21,7 +22,8 @@ interface PostsModule{
 const MainBar = () => {
   const [posts,setPosts] = useState([]);
   const [Loading,setLoading]=useState(true)
-  useEffect(()=>{
+  const login = UserLogout()
+  useEffect(()=>{   
     async function posts(){
     try{
       const post = await getPosts();
@@ -32,6 +34,7 @@ const MainBar = () => {
         setPosts(post.data)
       }
       
+      
     }
   catch(e:any){
     console.log(e.message)
@@ -40,6 +43,7 @@ const MainBar = () => {
   }
   posts()
   },[])
+
   if(Loading){
     return (
   <div className="flex  ml-18 md:ml-2 max-w-[400px] h-full  flex-col gap-4">
@@ -61,7 +65,10 @@ const MainBar = () => {
     <Suspense fallback={<div className='flex justify-center items-center'>Loading...</div>}>
       <div className="flex flex-col ml-14 overflow-y-scroll justify-center">
           {Array.isArray(posts) && posts.map((post:PostsModule,key)=>{
-            return <Posts id={post.user.id} name={post.user.username} porfolio={post.user.portfolio} description={post.description} image={post.post_image} profile={post.user.profile} key={key}/>
+            if(post.user.id != login.Id){
+              return <Posts  id={post.user.id} name={post.user.username} porfolio={post.user.portfolio} description={post.description} image={post.post_image} profile={post.user.profile} key={key}/>
+            }
+            
           })}
           
           

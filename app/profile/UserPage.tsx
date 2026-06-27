@@ -13,11 +13,12 @@ interface UsersInfo{
     last_name:String
     big_profile_image:String
     profile_image:String
-
+    followers:BigInteger
+    following:BigInteger
     speciality:String
     location:String
 } 
-const UserPage:React.FC<UsersInfo> = ({big_profile_image,speciality,profile_image,first_name,last_name,location}) => {
+const UserPage:React.FC<UsersInfo> = ({big_profile_image,speciality,profile_image,first_name,last_name,location,followers,following}) => {
   const Big = BigProfile()
   const profile = ProfileImage()
   const user_info = UserInfomation()
@@ -43,6 +44,20 @@ const UserPage:React.FC<UsersInfo> = ({big_profile_image,speciality,profile_imag
                   <h1 className='mt-3 text-md md:text-xl font-semibold tracking-wider '>{first_name} {last_name}</h1>
                   <p className='mt-2 font-serif text-sm md:text-lg '>{speciality}</p>
                   <p className='mt-2 front-light text-sm md:text-sm text-blue-300'>{location}</p>
+                  <div className="flex flex-row gap-2">
+                    <div className='flex flex-row gap-1'>
+                      <p></p>
+                      <p>post</p>
+                    </div>
+                    <div className='flex flex-row gap-1'>
+                      <p>{followers?followers : 0}</p>
+                      <p>followers</p>
+                    </div>
+                    <div className='flex flex-row gap-1'>
+                      <p>{following ? following:0}</p>
+                      <p>following</p>
+                    </div>
+                  </div>
                 </div>
             </div>
           </div>

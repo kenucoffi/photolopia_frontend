@@ -33,6 +33,7 @@ const ProfileNav = () => {
       if (users){
          setUser(users)
          logout.IsLogin()
+         logout.SetId(users.id)
          console.log(logout.IsAuthenticated)   
       }
       
@@ -46,6 +47,7 @@ const ProfileNav = () => {
 
   async function handleLogout(){
     logout.IsClicked()
+    logout.SetId("")
     try{
       const response = await logoutUser()
       if(response){

@@ -1,4 +1,5 @@
 import axios from "axios"
+// import { headers } from "next/headers"
 interface Register{
     
     email:String
@@ -478,5 +479,46 @@ export async function delete_post({id}:UserId){
   catch(e:any) {
     alert(e.message)
     return false
+  }
+}
+export async function followerId(){
+  const url = process.env.NEXT_PUBLIC_API_URL
+  const token = localStorage.getItem("auth_token")
+  try{
+    const response = await axios.get(url+"/api/V1/FollowingId",{headers:{"Authorization":"Bearer "+token,"Accept":"application/json"},withCredentials:true})
+    if(response){
+      return response.data
+    }
+  }
+  catch(error:any){
+    console.log(error.message)
+  }
+}
+export async function follow({id}:UserId){
+  const url = process.env.NEXT_PUBLIC_API_URL
+  const token = localStorage.getItem("auth_token")
+  try{
+    const response = await axios.get(url+"/api/V1/Follow/"+id,{headers:{"Authorization":"Bearer "+token,"Accept":"application/json"},withCredentials:true})
+    if(response){
+      console.log(response.data.user)
+      return response.data.user
+    }
+  }
+  catch(e:any){
+    console.log(e.message)
+  }
+}
+export async function unfollow({id}:UserId){
+  const url = process.env.NEXT_PUBLIC_API_URL
+  const token = localStorage.getItem("auth_token")
+  try{
+    const response = await axios.get(url+"/api/V1/Unfollow/"+id,{headers:{"Authorization":"Bearer "+token,"Accept":"application/json"},withCredentials:true})
+    if(response){
+      console.log(response.data.message)
+      return response.data.message
+    }
+  }
+  catch(e:any){
+    console.log(e.message)
   }
 }

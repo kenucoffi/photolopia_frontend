@@ -63,7 +63,7 @@ if (Loading){
     <>
        {user && (<div className="flex flex-col space-y-6">
       <div className="grid sm:grid-cols-3 grid-cols-2 md:grid-cols-2">
-         <UserPage first_name={user.user.first_name} last_name={user.user.last_name} big_profile_image={user.big_profile_image} profile_image={user.profile_image} speciality={user.speciality} location={user.location}/>
+         <UserPage followers={user.user.followers} following={user.user.following} first_name={user.user.first_name} last_name={user.user.last_name} big_profile_image={user.big_profile_image} profile_image={user.profile_image} speciality={user.speciality} location={user.location}/>
       </div>
       <div className="grid sm:grid-cols-3 grid-cols-2 md:grid-cols-2">
           <AboutPage bio={user.bio}/>

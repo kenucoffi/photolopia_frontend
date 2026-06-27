@@ -3,6 +3,7 @@ import React from 'react'
 import Photographer from './Photographer'
 import { useState ,useEffect } from 'react'
 import { Searchuser } from './Search'
+import { UserLogout } from '../../Modula/hooks/logout'
 import { devNull } from 'os'
 import axios from "axios"
 
@@ -36,6 +37,7 @@ export const getSearchData = async (search:String) =>{
 }
 
 
+
 const getData = async () => {
   try{
     // const response = await axios.get("http://localhost:8000/user/listphotographer",{withCredentials : false})
@@ -55,7 +57,7 @@ const Photographers_list =  () => {
   const [users,setUsers] = useState([])  
   const [Loading,setLoading]=useState(true)
   const issearch = Searchuser()
-  
+  const login = UserLogout()
  useEffect(() => {
     async function data(){
       const users = await getData()
@@ -125,7 +127,6 @@ const Photographers_list =  () => {
         <div className="flex justify-center skeleton w-25 h-25 rounded-full mt-[-45px]"></div>
         <div className="flex justify-center skeleton w-30 h-6"></div>
         <div className="flex justify-center skeleton w-30 h-6"></div>
-  
       </div>
     </div>)
   }
@@ -137,8 +138,10 @@ const Photographers_list =  () => {
           <div className=''>
             <div className=' grid grid-cols-2 sm:grid-cols-3  '>
                 {Array.isArray(users) && users.map((Photographers:Photographer,key)=>{
-              
-                  return(  <Photographer  first_name={Photographers.user.first_name} last_name={Photographers.user.last_name} big_profile_image={Photographers.big_profile_image} profile_image={Photographers.profile_image} speciality={Photographers.speciality} id={""+Photographers.user.id} key={key} />)
+                  if(Photographers.user.id != login.Id){
+                    return(  <Photographer  first_name={Photographers.user.first_name} last_name={Photographers.user.last_name} big_profile_image={Photographers.big_profile_image} profile_image={Photographers.profile_image} speciality={Photographers.speciality} id={""+Photographers.user.id} key={key} />)
+                  }
+                  
                 
               })}
             </div>

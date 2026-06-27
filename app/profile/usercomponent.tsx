@@ -67,7 +67,7 @@ const Usercomponent = () => {
        if(user.user_type=="photographer"){
         return (
           <div className="flex flex-col space-y-6">
-          <UserPage first_name={user.first_name} last_name={user.last_name} big_profile_image={user.photographer.big_profile_image} profile_image={user.photographer.profile_image} speciality={user.photographer.speciality} location={user.photographer.location}/>
+          <UserPage followers={user.followers} following={user.following} first_name={user.first_name} last_name={user.last_name} big_profile_image={user.photographer.big_profile_image} profile_image={user.photographer.profile_image} speciality={user.photographer.speciality} location={user.photographer.location}/>
           <AboutPage bio={user.photographer.bio}/>
           <PostPage/>
           <EventList/>

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { User } from '@deemlol/next-icons'
 import { follow, followerId, unfollow} from '../../Modula/utils/auth'
+import { UserLogout } from '../../Modula/hooks/logout'
 interface PostProps{
   name:string
   porfolio:string
@@ -20,6 +21,7 @@ const Posts:React.FC<PostProps> = ({id,name,porfolio,description,profile,image})
     const [following,setFollowing] = useState([])
     const [is_following,setIsfollowing]=useState(false)
     const [new_following,setNew_following]=useState([])
+    const login = UserLogout()
     const my_id = Number(id)
     function showMoreLess(){
       setMoreLess(!more_less)
@@ -79,7 +81,7 @@ const Posts:React.FC<PostProps> = ({id,name,porfolio,description,profile,image})
         <div className="flex flex-col">
             <div className="flex flex-row justify-between">
                 <Link href={'/useraccount/'+id}>{name}</Link>
-                <div className="text-blue-300 font-bold cursor-pointer hover:text-blue-700"> {is_following?<div onClick={handleunfollow}>Unfollow</div> :<div onClick={handlefollow}>+ FOLLOW</div>}</div>
+                {id != login.Id ? <div className="text-blue-300 font-bold cursor-pointer hover:text-blue-700"> {is_following?<div onClick={handleunfollow}>Unfollow</div> :<div onClick={handlefollow}>+ FOLLOW</div>}</div>:null}
             </div>
             <p className="text-2xs text-gray-400">{porfolio}</p>
         </div>

@@ -65,10 +65,7 @@ const MainBar = () => {
     <Suspense fallback={<div className='flex justify-center items-center'>Loading...</div>}>
       <div className="flex flex-col ml-14 overflow-y-scroll justify-center">
           {Array.isArray(posts) && posts.map((post:PostsModule,key)=>{
-            if(post.user.id != login.Id){
               return <Posts  id={post.user.id} name={post.user.username} porfolio={post.user.portfolio} description={post.description} image={post.post_image} profile={post.user.profile} key={key}/>
-            }
-            
           })}
           
           

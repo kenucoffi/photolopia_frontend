@@ -97,7 +97,7 @@ const ProfileNav = () => {
           <div className="btn btn-circle p-2 flex justify-center w-[32px] h-[32px] items-center">{user.first_name[0]}{user.last_name[0]}</div>
         </div>
         { isprofile &&(
-        <div className="absolute  top-10 flex flex-col w-[170px] sm:w-[250px] p-4 right-6 sm:right-8 bg-white border rounded-xl space-y-3 ">
+        <div className="absolute  top-10 flex flex-col w-[170px] sm:w-[250px] p-4 right-6 sm:right-8 bg-white border rounded-xl space-y-3 z-40">
             <div className="flex justify-between ">
               <div className="flex flex-col space-y-1">
                 <div className='font-light text-[10px] sm:text-[15px] text-gray-500 '>sign in as</div>
